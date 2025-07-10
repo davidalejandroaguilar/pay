@@ -38,7 +38,8 @@ module Pay
 
       def secrets(payload, signature)
         secret = Pay::Stripe.signing_secret
-        
+        secret = Pay.stripe_signing_secret if secret.blank?
+
         if secret
           case secret
           when Array

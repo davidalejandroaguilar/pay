@@ -44,6 +44,9 @@ module Pay
     @@support_email = value.is_a?(::Mail::Address) ? value : ::Mail::Address.new(value)
   end
 
+  mattr_accessor :stripe_signing_secret
+  @@stripe_signing_secret = nil
+
   mattr_accessor :automount_routes
   @@automount_routes = true
 
